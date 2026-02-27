@@ -1,0 +1,193 @@
+@font-face {    
+    font-family: "ElvishForce";
+    src: url("./fonts/ElvishForce.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    font-family: "ElvishForce", sans-serif;
+}
+
+h1 {
+    font-size: 4rem;
+    font-weight: 300;
+    letter-spacing: 3rem;
+}
+
+h2 {
+    font-size: 3rem;
+    font-weight: 300;
+}
+
+h3 {
+    font-size: 2rem;
+    font-weight: 300;
+}
+
+p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    max-width: 800px;
+}
+
+
+body {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-drag: none;
+    pointer-events: none;
+    background: linear-gradient(108deg, rgba(126, 1, 4, 0.35) 0%, rgba(206, 206, 206, 0.00) 50%, rgba(126, 1, 4, 0.35) 100%), #000;
+    font-family: 'IBM Plex Serif', serif;
+    overflow: hidden;
+}
+
+.slider {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px;
+    color: #f2f2f2;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1s ease;
+    overflow: hidden;
+}
+
+.slide.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.slide-hero {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("images/background_slide1.gif");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.slide-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.3)) rgba(0,0,0,0.3);
+    z-index: 0;
+}
+
+.slide-hero * {
+    position: relative;
+    z-index: 1;
+}
+
+.slide-click-nav {
+    cursor: pointer;
+}
+
+.buttons-container {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.nextBoton,
+.prevBoton,
+.goLast {
+    padding: 12px 18px;
+    font-size: 18px;
+    background: rgba(242,242,242,0.05);
+    border: 1px solid white;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+    width: auto;
+    text-align: center;
+}
+
+.nextBoton:hover,
+.prevBoton:hover,
+.goLast:hover {
+    background: white;
+    color: black;
+}
+
+.diamond-btn {
+    margin-top: 40px;
+    width: 90px;
+    height: 90px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 14px;
+}
+
+.diamond-btn::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 1px solid white;
+    border-radius: 15px;
+    transform: rotate(45deg);
+    transition: 0.3s;
+}
+
+.diamond-btn:hover::before {
+    background: white;
+}
+
+.diamond-btn:hover {
+    color: black;
+}
+
+.diamond-btn span {
+    position: relative;
+    z-index: 2;
+}
+
+.img-left {
+    position: fixed;
+    top: 50%;
+    left: 0%;
+    transform: translateY(-50%);
+    max-width: 45vw;
+    height: auto;
+}
+
+.img-right {
+    position: fixed;
+    top: 50%;
+    right: 0%;
+    transform: translateY(-50%);
+    max-width: 45vw;
+    height: auto;
+}
