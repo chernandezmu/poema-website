@@ -1,9 +1,12 @@
-console.log("Page Loaded correctly")
-console.log("By: Carlos Hernandez")
-console.log("El Bosque University")
-
+const DEBUG = true;
 const boton = document.querySelector(".Boton");
 const sonido = document.getElementById("clickSound");
+
+function debugLog(...args) {
+    if (DEBUG) {
+        debugLog(...args);
+    }
+}
 
 boton.addEventListener("click", function() {
     sonido.currentTime = 0; 
@@ -12,8 +15,12 @@ boton.addEventListener("click", function() {
 });
 
 
+debugLog("Page Loaded correctly")
+debugLog("By: Carlos Hernandez")
+debugLog("El Bosque University")
+
 document.addEventListener("DOMContentLoaded", function () {
-    console.log("JS cargado");
+    debugLog("JS cargado");
     let currentSlide = 0;
     const bgMusic = document.getElementById("bgMusic");
     const slides = document.querySelectorAll(".slide");
@@ -26,9 +33,9 @@ document.addEventListener("DOMContentLoaded", function () {
     startBtn.addEventListener("click", () => {
         bgMusic.volume = 0.1;
         bgMusic.play().then(() => {
-            console.log("Música iniciada");
+            debugLog("Música iniciada");
         }).catch(err => {
-            console.log("Error al reproducir:", err);
+            debugLog("Error al reproducir:", err);
         });
 
         goToSlide(1);
@@ -71,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     startBtn.addEventListener("click", () => {
-        console.log("Start clicked");
+        debugLog("Start clicked");
         goToSlide(1);
     });
 
