@@ -4,7 +4,7 @@ const sonido = document.getElementById("clickSound");
 
 function debugLog(...args) {
     if (DEBUG) {
-        debugLog(...args);
+        console.log(...args);
     }
 }
 
